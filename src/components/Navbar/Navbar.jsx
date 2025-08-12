@@ -8,11 +8,6 @@ const Navbar = () => {
                 isActive ? 'btn btn-info' : isPending ? 'pending' : 'btn btn-ghost'
             }>Home
         </NavLink>
-        <NavLink to="/users"
-            className={({ isActive, isPending }) =>
-                isActive ? 'btn btn-info' : isPending ? 'pending' : 'btn btn-ghost'
-            }>All Users
-        </NavLink>
         <NavLink to="/about"
             className={({ isActive, isPending }) =>
                 isActive ? 'btn btn-info' : isPending ? 'pending' : 'btn btn-ghost'
