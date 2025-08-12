@@ -1,16 +1,20 @@
 import { useState } from 'react';
 import Users from '../Users/Users';
+import NewUser from '../NewUser/NewUser';
 
 const Home = () => {
 
     const [users, setUsers] = useState([
         { id: 1, username: "Bond" },
-        { id: 2, username: "Abram" },
-        { id: 3, username: "JKL" },
+        { id: 2, username: "Benjamin" },
+        { id: 3, username: "Edward" },
         { id: 4, username: "David" },
-        { id: 5, username: "Lopez" },
+        { id: 5, username: "Oliver" },
         { id: 6, username: "Andrew" },
-        { id: 7, username: "Lamu" },
+        { id: 7, username: "Harry" },
+        { id: 8, username: "Thomas" },
+        { id: 9, username: "Jack" },
+        { id: 10, username: "William" },
     ])
 
     const handleDeleteUser = (id) => {
@@ -18,9 +22,14 @@ const Home = () => {
         setUsers(filteredUsers);
     }
 
+    const handleAddNewUser = (newUser) => {
+        setUsers(prevUsers => [...prevUsers, newUser]);
+    }
+
     return (
         <div className='px-10 mt-5 mb-10'>
             <h1 className='text-center text-5xl font-semibold'>Welcome to UserHub</h1>
+            <NewUser handleAddNewUser={handleAddNewUser}></NewUser>
             <Users users={users} handleDeleteUser={handleDeleteUser}></Users>
         </div>
     );
