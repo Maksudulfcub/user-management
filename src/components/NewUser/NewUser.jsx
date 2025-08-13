@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UsersContext } from "../context/UsersContext";
 
-const NewUser = ({ handleAddNewUser }) => {
+const NewUser = () => {
 
     const [userName, setUsername] = useState("");
+    const { setUsers } = useContext(UsersContext);
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -11,7 +13,7 @@ const NewUser = ({ handleAddNewUser }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const newUser = { id: new Date().getTime().toString(), username: userName };
-        handleAddNewUser(newUser);
+        setUsers(prevUsers => [...prevUsers, newUser]);
         setUsername("");
     }
 

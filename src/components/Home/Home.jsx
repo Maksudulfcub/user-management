@@ -18,15 +18,11 @@ const Home = () => {
         { id: 10, username: "William" },
     ])
 
-    const handleAddNewUser = (newUser) => {
-        setUsers(prevUsers => [...prevUsers, newUser]);
-    }
-
     return (
         <UsersContext.Provider value={{ users, setUsers }}>
             <div className='px-10 mt-5 mb-10'>
                 <h1 className='text-center text-5xl font-semibold'>Welcome to UserHub</h1>
-                <NewUser handleAddNewUser={handleAddNewUser}></NewUser>
+                <NewUser></NewUser>
                 <Users></Users>
             </div>
         </UsersContext.Provider>
