@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Users from '../Users/Users';
 import NewUser from '../NewUser/NewUser';
+import { UsersContext } from '../context/UsersContext';
 
 const Home = () => {
 
@@ -27,11 +28,13 @@ const Home = () => {
     }
 
     return (
-        <div className='px-10 mt-5 mb-10'>
-            <h1 className='text-center text-5xl font-semibold'>Welcome to UserHub</h1>
-            <NewUser handleAddNewUser={handleAddNewUser}></NewUser>
-            <Users users={users} handleDeleteUser={handleDeleteUser}></Users>
-        </div>
+        <UsersContext.Provider value={{ users, setUsers }}>
+            <div className='px-10 mt-5 mb-10'>
+                <h1 className='text-center text-5xl font-semibold'>Welcome to UserHub</h1>
+                <NewUser handleAddNewUser={handleAddNewUser}></NewUser>
+                <Users handleDeleteUser={handleDeleteUser}></Users>
+            </div>
+        </UsersContext.Provider>
     );
 };
 
