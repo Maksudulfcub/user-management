@@ -18,11 +18,6 @@ const Home = () => {
         { id: 10, username: "William" },
     ])
 
-    const handleDeleteUser = (id) => {
-        const filteredUsers = users.filter(user => user.id !== id);
-        setUsers(filteredUsers);
-    }
-
     const handleAddNewUser = (newUser) => {
         setUsers(prevUsers => [...prevUsers, newUser]);
     }
@@ -32,7 +27,7 @@ const Home = () => {
             <div className='px-10 mt-5 mb-10'>
                 <h1 className='text-center text-5xl font-semibold'>Welcome to UserHub</h1>
                 <NewUser handleAddNewUser={handleAddNewUser}></NewUser>
-                <Users handleDeleteUser={handleDeleteUser}></Users>
+                <Users></Users>
             </div>
         </UsersContext.Provider>
     );
